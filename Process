@@ -1,0 +1,6 @@
+1. Decide ML package
+2. Read positive and negative files and store it. for train and test.
+
+positive >= 7
+negative <= 4
+neutral 4 < x < 7
