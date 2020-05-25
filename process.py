@@ -41,7 +41,6 @@ def create_sample(sample, lexicon, classificatin):
                 features[index] += 1
         features = list(features)
         featureset.append([features, classificatin])
-        break
     return featureset
 
 
@@ -53,22 +52,19 @@ def create_featureset_and_labels(train_pos, train_neg, test_pos, test_neg):
     pos.extend(train_pos)
 
     neg = []
-#    neg.extend(train_neg)
-#    neg.extend(test_neg)
+    neg.extend(train_neg)
+    neg.extend(test_neg)
 
     print('loxi call')
     loxi = create_lexicon(pos, neg)
     print('loxi end')
-#    features = []
 
     print('sample call')
     train_x = create_sample(train_pos, loxi, [1, 0])
+    train_y = create_sample(train_neg, loxi, [0, 1])
+    test_x = create_sample(test_pos, loxi, [1, 0])
+    test_y = create_sample(test_neg, loxi, [0, 1])
     print('sample end')
-#    train_y = create_sample(train_neg, loxi, [0, 1])
-#    test_x = create_sample(test_pos, loxi, [1, 0])
-#    test_y = create_sample(test_neg, loxi, [0, 1])
-
-#    print(train_x[0:10])
 
     
 
